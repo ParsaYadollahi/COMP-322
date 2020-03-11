@@ -1,4 +1,5 @@
 #include <iostream>
+#include " blackjack.cpp";
 using namespace std;
 
 int main()
