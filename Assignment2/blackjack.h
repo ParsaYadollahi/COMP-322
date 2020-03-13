@@ -42,13 +42,66 @@ public:
     void displayCard();
 };
 
+// Hand class
 class Hand
 {
 protected:
+    // Create a protected contructor
     vector<Card> cards;
 
 public:
+    // Display functions
     void add(Card card);
     void clear();
     int getTotal();
-}
+    void displayHand();
+};
+
+class Deck : public Hand
+{
+private:
+    vector<Card> deck;
+
+public:
+    void populate();
+    void shuffle();
+    Card deal();
+};
+
+// Abstract player class
+class AbstractPlayer : public Hand
+{
+public:
+    Hand hand;
+
+public:
+    virtual bool isDrawing() = 0;
+    bool isBusted();
+};
+
+// Human class
+class HumanPlayer : public AbstractPlayer
+{
+public:
+    bool isDrawing();
+    void announce(char &status, int hand_total);
+};
+
+// Computer class
+class ComputerPlayer : public AbstractPlayer
+{
+public:
+    bool isDrawing();
+};
+
+// BlackJack class
+class BlackJackGame
+{
+private:
+    Deck m_deck;
+    ComputerPlayer m_casino;
+    HumanPlayer m_player;
+
+public:
+    void play();
+};
