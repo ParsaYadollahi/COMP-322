@@ -1,10 +1,10 @@
 #include <iostream>
-#include " blackjack.cpp";
+#include " blackjack.cpp"
 using namespace std;
 
 int main()
 {
-    cout << "\tWelcome to the Comp322 Blackjack game!" << endl
+    cout << "Welcome to the Comp322 Blackjack game!" << endl
          << endl;
     BlackJackGame game;
     // The main loop of the game
@@ -20,6 +20,6 @@ int main()
              << endl;
         playAgain = (answer == 'y' ? true : false);
     }
-    cout << "Gave over!";
+    cout << "Gave over!" << endl;
     return 0;
 }

@@ -29,7 +29,7 @@ enum Type
 // Card class
 class Card
 {
-private:
+protected:
     // Create private const for the enums listed above
     enum Rank rank;
     enum Type type;
@@ -59,7 +59,7 @@ public:
 
 class Deck : public Hand
 {
-private:
+protected:
     vector<Card> deck;
 
 public:
@@ -79,19 +79,19 @@ public:
     bool isBusted();
 };
 
-// Human class
-class HumanPlayer : public AbstractPlayer
-{
-public:
-    bool isDrawing();
-    void announce(char &status, int hand_total);
-};
-
 // Computer class
 class ComputerPlayer : public AbstractPlayer
 {
 public:
     bool isDrawing();
+};
+
+// Human class
+class HumanPlayer : public ComputerPlayer
+{
+public:
+    bool isDrawing();
+    void announce(char &status, int hand_total);
 };
 
 // BlackJack class
